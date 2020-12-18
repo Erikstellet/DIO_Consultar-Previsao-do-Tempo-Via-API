@@ -4,6 +4,8 @@ import { HomePage } from './home.page';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { homeReducer } from './state/home.reduce';
+import { EffectsModule } from '@ngrx/effects';
+import { HomeEffects } from './state/home.effectes';
 
 @NgModule
 ({
@@ -12,6 +14,7 @@ import { homeReducer } from './state/home.reduce';
     CommonModule,
     ReactiveFormsModule,
     StoreModule.forFeature('home', homeReducer),
+    EffectsModule.forFeature([HomeEffects]),
   ],
   declarations:
   [
