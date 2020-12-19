@@ -1,4 +1,5 @@
-export interface CityWeather {
+export interface CityWeather
+{
   city: City;
   weather: Weather;
 }

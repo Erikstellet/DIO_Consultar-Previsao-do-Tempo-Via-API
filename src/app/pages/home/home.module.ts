@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomePage } from './home.page';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { StoreModule } from '@ngrx/store';
-import { homeReducer } from './state/home.reduce';
 import { EffectsModule } from '@ngrx/effects';
-import { HomeEffects } from './state/home.effectes';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
+
+
+import { homeReducer } from './state/home.reduce';
+import { HomeEffects } from './state/home.effects';
+import { HomePage } from './containers/home/home.page';
+import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
 
 @NgModule
 ({
@@ -15,11 +20,13 @@ import { HomeEffects } from './state/home.effectes';
     ReactiveFormsModule,
     StoreModule.forFeature('home', homeReducer),
     EffectsModule.forFeature([HomeEffects]),
+    ComponentsModule,
   ],
   declarations:
   [
-    HomePage
-  ]
+    HomePage,
+    CurrentWeatherComponent
+  ],
 })
 
 export class HomeModule { }
