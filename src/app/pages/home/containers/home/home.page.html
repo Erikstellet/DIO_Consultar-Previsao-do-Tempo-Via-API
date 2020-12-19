@@ -2,7 +2,7 @@
     <div class="search-container">
 
         <div class="form-group">
-            <label>{{ text }}</label>
+            <label>Pesquisar</label>
         <div>
 
         <input class="form-control" [formControl]="searchControl">
@@ -22,7 +22,7 @@
 
 <jv-loader *ngIf="loading$ | async"></jv-loader>
 
-<div *ngIf="!(loading$ | async) && !(error$) && !!(cityWeather)">
+<div *ngIf="!(loading$ | async) && !(error$ | async) && !!cityWeather">
     <jv-current-weather [cityWeather]="cityWeather"
                         (toogleBookmark)="onToggleBookmark()">
     </jv-current-weather>
