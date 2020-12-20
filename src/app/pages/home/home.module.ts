@@ -4,29 +4,26 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { ComponentsModule } from 'src/app/shared/components/components.module';
 
-
+import { HomePage } from './containers/home/home.page';
 import { homeReducer } from './state/home.reduce';
 import { HomeEffects } from './state/home.effects';
-import { HomePage } from './containers/home/home.page';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
+import { RouterModule } from '@angular/router';
 
-@NgModule
-({
-  imports:
-  [
+@NgModule({
+  imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
     StoreModule.forFeature('home', homeReducer),
     EffectsModule.forFeature([HomeEffects]),
     ComponentsModule,
   ],
-  declarations:
-  [
+  declarations: [
     HomePage,
-    CurrentWeatherComponent
+    CurrentWeatherComponent,
   ],
 })
-
 export class HomeModule { }
